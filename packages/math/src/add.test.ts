@@ -62,18 +62,6 @@ describe('add', () => {
     expect(c).toEqual(vec3(5, 7, 9));
   });
 
-  it('should throw when trying to add vector and matrix', () => {
-    const a = vec4(1, 2, 3, 4);
-    const b = mat4(
-      vec4(1, 2, 3, 4),
-      vec4(5, 6, 7, 8),
-      vec4(9, 10, 11, 12),
-      vec4(13, 14, 15, 16)
-    );
-
-    expect(() => add(a, b as any)).toThrow('Cannot add vector and matrix');
-  });
-
   it('should add matrix and scalar', () => {
     const a = mat4(
       vec4(1, 2, 3, 4),
@@ -93,18 +81,6 @@ describe('add', () => {
         vec4(14, 15, 16, 17)
       )
     );
-  });
-
-  it('should throw when trying to add matrix and vector', () => {
-    const a = mat4(
-      vec4(1, 2, 3, 4),
-      vec4(5, 6, 7, 8),
-      vec4(9, 10, 11, 12),
-      vec4(13, 14, 15, 16)
-    );
-    const b = vec4(1, 2, 3, 4);
-
-    expect(() => add(a, b as any)).toThrow('Cannot add matrix and vector');
   });
 
   it('should add matrix and matrix', () => {

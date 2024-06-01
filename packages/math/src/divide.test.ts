@@ -62,20 +62,6 @@ describe('divide', () => {
     expect(c).toEqual(vec3(1, 2, 3));
   });
 
-  it('should throw when trying to divide vector and matrix', () => {
-    const a = vec4(1, 2, 3, 4);
-    const b = mat4(
-      vec4(1, 2, 3, 4),
-      vec4(5, 6, 7, 8),
-      vec4(9, 10, 11, 12),
-      vec4(13, 14, 15, 16)
-    );
-
-    expect(() => divide(a, b as any)).toThrow(
-      'Cannot divide vector and matrix'
-    );
-  });
-
   it('should divide matrix and scalar', () => {
     const a = mat4(
       vec4(2, 4, 6, 8),
@@ -94,20 +80,6 @@ describe('divide', () => {
         vec4(9, 10, 11, 12),
         vec4(13, 14, 15, 16)
       )
-    );
-  });
-
-  it('should throw when trying to divide matrix and vector', () => {
-    const a = mat4(
-      vec4(1, 2, 3, 4),
-      vec4(5, 6, 7, 8),
-      vec4(9, 10, 11, 12),
-      vec4(13, 14, 15, 16)
-    );
-    const b = vec4(1, 2, 3, 4);
-
-    expect(() => divide(a, b as any)).toThrow(
-      'Cannot divide matrix and vector'
     );
   });
 

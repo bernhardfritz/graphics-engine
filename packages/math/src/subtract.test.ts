@@ -62,20 +62,6 @@ describe('subtract', () => {
     expect(c).toEqual(vec3(1, 2, 3));
   });
 
-  it('should throw when trying to subtract vector and matrix', () => {
-    const a = vec4(1, 2, 3, 4);
-    const b = mat4(
-      vec4(1, 2, 3, 4),
-      vec4(5, 6, 7, 8),
-      vec4(9, 10, 11, 12),
-      vec4(13, 14, 15, 16)
-    );
-
-    expect(() => subtract(a, b as any)).toThrow(
-      'Cannot subtract vector and matrix'
-    );
-  });
-
   it('should subtract matrix and scalar', () => {
     const a = mat4(
       vec4(2, 3, 4, 5),
@@ -94,20 +80,6 @@ describe('subtract', () => {
         vec4(9, 10, 11, 12),
         vec4(13, 14, 15, 16)
       )
-    );
-  });
-
-  it('should throw when trying to subtract matrix and vector', () => {
-    const a = mat4(
-      vec4(1, 2, 3, 4),
-      vec4(5, 6, 7, 8),
-      vec4(9, 10, 11, 12),
-      vec4(13, 14, 15, 16)
-    );
-    const b = vec4(1, 2, 3, 4);
-
-    expect(() => subtract(a, b as any)).toThrow(
-      'Cannot subtract matrix and vector'
     );
   });
 

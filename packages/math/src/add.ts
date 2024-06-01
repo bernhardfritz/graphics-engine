@@ -27,25 +27,19 @@ export function add<T extends genType | mat2 | mat3 | mat4>(
     // x is vector
     if (isNumber(y)) {
       return add(x, genType[x.length](y) as T);
-    } else if (isNumber(y[0])) {
+    } else {
       // y is vector
       return componentWise(
         add,
         x as Exclude<genType, number>,
         y as Exclude<genType, number>
       ) as T;
-    } else {
-      // y is matrix
-      throw new Error('Cannot add vector and matrix');
     }
   } else {
     // x is matrix
     if (isNumber(y)) {
       const yy = genType[x[0].length](y);
       return matn[x.length](...x.map((xx) => add(xx, yy))) as T;
-    } else if (isNumber(y[0])) {
-      // y is vector
-      throw new Error('Cannot add matrix and vector');
     } else {
       // y is matrix
       return matn[x.length](
