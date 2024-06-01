@@ -30,4 +30,13 @@ describe('permutations', () => {
       [2, 1, 0],
     ]);
   });
+
+  it('something', () => {
+    const a = [
+      ...permutations(['x', 'y', /*'z', 'w'*/], 2),
+      ...permutations(['r', 'g', /*'b', 'a'*/], 2),
+      ...permutations(['s', 't', /*'p', 'q'*/], 2),
+    ].map((tuple) => tuple.join(''));
+    a.forEach((v) => { console.log(v); });
+  });
 });
