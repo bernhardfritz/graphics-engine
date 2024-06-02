@@ -31,9 +31,9 @@ describe('product', () => {
 
   it('something', () => {
     const a = [
-      ...product(['x', 'y', /*'z', 'w'*/], 4),
-      ...product(['r', 'g', /*'b', 'a'*/], 4),
-      ...product(['s', 't', /*'p', 'q'*/], 4),
+      ...product(['x', 'y', 'z', 'w'], 4),
+      ...product(['r', 'g', 'b', 'a'], 4),
+      ...product(['s', 't', 'p', 'q'], 4),
     ].map((tuple) => tuple.join(''));
     a.forEach((v) => { console.log(v); });
   });

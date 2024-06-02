@@ -33,9 +33,9 @@ describe('permutations', () => {
 
   it('something', () => {
     const a = [
-      ...permutations(['x', 'y', /*'z', 'w'*/], 2),
-      ...permutations(['r', 'g', /*'b', 'a'*/], 2),
-      ...permutations(['s', 't', /*'p', 'q'*/], 2),
+      ...permutations(['x', 'y', 'z', 'w'], 4),
+      ...permutations(['r', 'g', 'b', 'a'], 4),
+      ...permutations(['s', 't', 'p', 'q'], 4),
     ].map((tuple) => tuple.join(''));
     a.forEach((v) => { console.log(v); });
   });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Vec2SwizzleComponentKeys, vec2 } from './vec2';
+import { vec2 } from './vec2';
 import { vec3 } from './vec3';
 import { vec4 } from './vec4';
 
@@ -108,15 +108,15 @@ describe('vec2', () => {
   });
 
   it.each<{
-    swizzleMask: Vec2SwizzleComponentKeys;
-    expected: [number, number];
+    swizzleMask: 'x' | 'y' | 'r' | 'g' | 's' | 't';
+    expected: vec2;
   }>([
-    { swizzleMask: 'x', expected: [1, 0] },
-    { swizzleMask: 'y', expected: [0, 1] },
-    { swizzleMask: 'r', expected: [1, 0] },
-    { swizzleMask: 'g', expected: [0, 1] },
-    { swizzleMask: 's', expected: [1, 0] },
-    { swizzleMask: 't', expected: [0, 1] },
+    { swizzleMask: 'x', expected: vec2(1, 0) },
+    { swizzleMask: 'y', expected: vec2(0, 1) },
+    { swizzleMask: 'r', expected: vec2(1, 0) },
+    { swizzleMask: 'g', expected: vec2(0, 1) },
+    { swizzleMask: 's', expected: vec2(1, 0) },
+    { swizzleMask: 't', expected: vec2(0, 1) },
   ])('should support write swizzling with one component', ({ swizzleMask, expected }) => {
     const v = vec2(0);
 
@@ -127,14 +127,14 @@ describe('vec2', () => {
 
   it.each<{
     swizzleMask: 'xy' | 'yx' | 'rg' | 'gr' | 'st' | 'ts';
-    expected: [number, number];
+    expected: vec2;
   }>([
-    { swizzleMask: 'xy', expected: [1, 2] },
-    { swizzleMask: 'yx', expected: [2, 1] },
-    { swizzleMask: 'rg', expected: [1, 2] },
-    { swizzleMask: 'gr', expected: [2, 1] },
-    { swizzleMask: 'st', expected: [1, 2] },
-    { swizzleMask: 'ts', expected: [2, 1] },
+    { swizzleMask: 'xy', expected: vec2(1, 2) },
+    { swizzleMask: 'yx', expected: vec2(2, 1) },
+    { swizzleMask: 'rg', expected: vec2(1, 2) },
+    { swizzleMask: 'gr', expected: vec2(2, 1) },
+    { swizzleMask: 'st', expected: vec2(1, 2) },
+    { swizzleMask: 'ts', expected: vec2(2, 1) },
   ])('should support write swizzling with two components', ({ swizzleMask, expected }) => {
     const v = vec2(0);
 
