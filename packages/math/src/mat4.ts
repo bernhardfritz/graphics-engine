@@ -2,8 +2,8 @@ import { vec4 } from './vec4';
 
 export type mat4 = [vec4, vec4, vec4, vec4];
 
-export function mat4(...args: (number | number[])[]): mat4 {
-  const flattened = args.flat();
+export function mat4(...args: (number | number[] | number[][])[]): mat4 {
+  const flattened = args.flat(2);
   if (flattened.length === 1) {
     const d = flattened[0];
     return [
