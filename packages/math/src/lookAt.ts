@@ -14,18 +14,18 @@ export function lookAt(eye: vec3, center: vec3, up: vec3): mat4 {
     s.x,
     u.x,
     -f.x,
-    -dot(s, eye),
+    0,
     s.y,
     u.y,
     -f.y,
-    -dot(u, eye),
+    0,
     s.z,
     u.z,
     -f.z,
+    0,
+    -dot(s, eye),
+    -dot(u, eye),
     dot(f, eye),
-    0,
-    0,
-    0,
     1
   );
 }
